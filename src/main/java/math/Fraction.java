@@ -28,7 +28,15 @@ public class Fraction extends Number implements Cloneable {
 	 * @throws ArithmeticException if the denominator is zero
 	 */
 	public Fraction(long numerator, long denominator) throws ArithmeticException {
-		// TODO
+                if (denominator == 0)
+                    throw new ArithmeticException("Division by zero");
+                if (denominator < 0) {
+                    this.numerator = -numerator;
+                    this.denominator = -denominator;
+                } else {
+                    this.numerator = numerator;
+                    this.denominator = denominator;
+                }
 	}
 
 	/**
@@ -37,7 +45,7 @@ public class Fraction extends Number implements Cloneable {
 	 * @param n
 	 */
 	public Fraction(long n) {
-		// TODO
+		this(n, 1);
 	}
 
 	/**
